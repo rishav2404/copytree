@@ -15,6 +15,13 @@ export const UrlProcessor: React.FC = () => {
     setToast({ message, type });
   };
 
+  const openProcessedLink = (url: string) => {
+    const opened = window.open(url, '_blank', 'noopener,noreferrer');
+    if (!opened) {
+      showToast('Popup blocked. Allow popups to open the processed link.', 'error');
+    }
+  };
+
   const handleProcess = useCallback(async (text: string) => {
     if (!text || !isValidUrl(text)) {
       showToast('Please provide a valid URL', 'error');
@@ -30,6 +37,9 @@ export const UrlProcessor: React.FC = () => {
       
       // Copy to clipboard automatically
       await navigator.clipboard.writeText(processed);
+
+      // Open processed link in a new tab
+      openProcessedLink(processed);
       
       // Update history
       const newEntry: TransformationResult = {
