@@ -38,7 +38,7 @@ const App: React.FC = () => {
 
           {/* Guidelines Section */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-600">
-            <div className="p-4">
+            {/* <div className="p-4">
               <h4 className="font-bold text-slate-800 mb-2">Automated Paste</h4>
               <p className="text-sm">Click "Paste & Process" to grab the URL directly from your clipboard and start transforming immediately.</p>
             </div>
@@ -49,7 +49,7 @@ const App: React.FC = () => {
             <div className="p-4">
               <h4 className="font-bold text-slate-800 mb-2">Instant Copy</h4>
               <p className="text-sm">The result is automatically copied back to your clipboard, ready for use elsewhere.</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>
