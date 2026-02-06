@@ -58,7 +58,7 @@ const App: React.FC = () => {
       <footer className="py-8 px-6 border-t border-slate-200 bg-white">
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-slate-400 text-sm">
-            Professional Web Utility &copy; {new Date().getFullYear()}
+            Web Utility &copy; {new Date().getFullYear()}
           </p>
         </div>
       </footer>

@@ -1,5 +1,5 @@
 {
   "name": "Archive-to-Tree URL Transformer",
-  "description": "A professional utility tool that converts archive-style URLs to tree-view URLs by replacing path segments and removing extensions, featuring one-click clipboard automation.",
+  "description": "A utility tool that converts archive-style URLs to tree-view URLs by replacing path segments and removing extensions, featuring one-click clipboard automation.",
   "requestFramePermissions": []
 }
