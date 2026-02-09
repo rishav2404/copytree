@@ -10,6 +10,8 @@ export const UrlProcessor: React.FC = () => {
   const [history, setHistory] = useState<TransformationResult[]>([]);
   const [status, setStatus] = useState<StatusType>(StatusType.IDLE);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  const msDownloadUrl =
+    'https://computricals-my.sharepoint.com/:f:/g/personal/gnanapragasam_grok-digital_com/IgDQIDvd8NYBR6kdntIDXJ0TAQWpqeDz_rz5fQPwAlHwoHk?e=3bkxDu';
 
   const showToast = (message: string, type: 'success' | 'error') => {
     setToast({ message, type });
@@ -19,6 +21,13 @@ export const UrlProcessor: React.FC = () => {
     const opened = window.open(url, '_blank', 'noopener,noreferrer');
     if (!opened) {
       showToast('Popup blocked. Allow popups to open the processed link.', 'error');
+    }
+  };
+
+  const openMsDownload = () => {
+    const opened = window.open(msDownloadUrl, '_blank', 'noopener,noreferrer');
+    if (!opened) {
+      showToast('Popup blocked. Allow popups to open the MS download link.', 'error');
     }
   };
 
@@ -80,6 +89,12 @@ export const UrlProcessor: React.FC = () => {
 
   return (
     <div className="w-full max-w-2xl mx-auto space-y-8">
+      <button
+        onClick={openMsDownload}
+        className="fixed top-4 left-4 z-50 bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg shadow-md"
+      >
+        MS download
+      </button>
       {/* Main Action Card */}
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
         <h2 className="text-xl font-semibold text-slate-800 mb-6 flex items-center">
