@@ -11,7 +11,7 @@ export const UrlProcessor: React.FC = () => {
   const [status, setStatus] = useState<StatusType>(StatusType.IDLE);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const msDownloadUrl =
-    'https://computricals-my.sharepoint.com/:f:/g/personal/gnanapragasam_grok-digital_com/IgDQIDvd8NYBR6kdntIDXJ0TAQWpqeDz_rz5fQPwAlHwoHk?e=3bkxDu';
+    'https://computricals-my.sharepoint.com/:f:/g/personal/rishav_grok-digital_com/IgDAH5-XHBt2Q6_YyYPljQ3yAV1wKLQ_16Ih18N6mhRsZu0?e=rlEnQc';
 
   const showToast = (message: string, type: 'success' | 'error') => {
     setToast({ message, type });
@@ -39,17 +39,17 @@ export const UrlProcessor: React.FC = () => {
     }
 
     setStatus(StatusType.PROCESSING);
-    
+
     try {
       const processed = transformUrl(text);
       setResult(processed);
-      
+
       // Copy to clipboard automatically
       await navigator.clipboard.writeText(processed);
 
       // Open processed link in a new tab
       openProcessedLink(processed);
-      
+
       // Update history
       const newEntry: TransformationResult = {
         original: text,
@@ -57,7 +57,7 @@ export const UrlProcessor: React.FC = () => {
         timestamp: Date.now()
       };
       setHistory(prev => [newEntry, ...prev].slice(0, 10));
-      
+
       setStatus(StatusType.SUCCESS);
       showToast('Processed and copied to clipboard!', 'success');
     } catch (err) {
@@ -131,7 +131,7 @@ export const UrlProcessor: React.FC = () => {
               </svg>
               <span>Paste & Process</span>
             </button>
-            
+
             <button
               disabled={!input}
               onClick={() => handleProcess(input)}
@@ -152,10 +152,10 @@ export const UrlProcessor: React.FC = () => {
               <code className="text-sm text-indigo-900 break-all font-mono select-all">
                 {result}
               </code>
-              <button 
+              <button
                 onClick={() => {
-                   navigator.clipboard.writeText(result);
-                   showToast('Copied to clipboard', 'success');
+                  navigator.clipboard.writeText(result);
+                  showToast('Copied to clipboard', 'success');
                 }}
                 className="shrink-0 text-indigo-600 hover:text-indigo-800 p-2"
                 title="Copy again"
@@ -179,18 +179,18 @@ export const UrlProcessor: React.FC = () => {
             {history.map((item) => (
               <div key={item.timestamp} className="group border-b border-slate-50 pb-4 last:border-0 last:pb-0">
                 <div className="flex justify-between items-start mb-1">
-                   <p className="text-xs text-slate-400 font-medium">
-                     {new Date(item.timestamp).toLocaleTimeString()}
-                   </p>
-                   <button 
-                     onClick={() => {
-                        navigator.clipboard.writeText(item.processed);
-                        showToast('Copied to clipboard', 'success');
-                     }}
-                     className="opacity-0 group-hover:opacity-100 text-indigo-600 text-xs font-medium transition-opacity"
-                   >
-                     Copy Result
-                   </button>
+                  <p className="text-xs text-slate-400 font-medium">
+                    {new Date(item.timestamp).toLocaleTimeString()}
+                  </p>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(item.processed);
+                      showToast('Copied to clipboard', 'success');
+                    }}
+                    className="opacity-0 group-hover:opacity-100 text-indigo-600 text-xs font-medium transition-opacity"
+                  >
+                    Copy Result
+                  </button>
                 </div>
                 <div className="space-y-1">
                   <p className="text-sm text-slate-400 line-through truncate" title={item.original}>
